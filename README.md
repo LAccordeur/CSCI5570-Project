@@ -25,7 +25,7 @@ Uri of full dataset: https://drive.google.com/file/d/1yQbDj6a-a8xOk9osF8mB3ZdVKZ
 - Java: JDK1.8
 - Maven
 - Python: Python3, Numpy
-- GeoMesa: 2.3.2
+- GeoMesa: 2.2.1
 - Scala: 2.11
 
 ### How to use?
