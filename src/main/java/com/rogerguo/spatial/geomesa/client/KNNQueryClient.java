@@ -39,7 +39,7 @@ public class KNNQueryClient extends GeoMesaClient {
     }
 
     public void executeKNN() {
-        int k = 250;
+        int k = 50;
         double guessedDistance = 1000;
         double maxLimitDistance = 250000;
 

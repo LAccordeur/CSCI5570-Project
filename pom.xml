@@ -22,7 +22,26 @@
     </properties>
 
     <repositories>
+
         <repository>
+            <id>locationtech-releases-new</id>
+            <url>https://repo.eclipse.org/content/groups/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>locationtech-snapshots-new</id>
+            <url>https://repo.eclipse.org/content/groups/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- <repository>
             <id>locationtech-releases</id>
             <url>https://repo.locationtech.org/content/groups/releases</url>
             <snapshots>
@@ -38,11 +57,11 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
-        <repository>
+        </repository> -->
+        <!-- <repository>
             <id>boundlessgeo</id>
             <url>http://repo.boundlessgeo.com/main</url>
-        </repository>
+        </repository> -->
         <repository>
             <id>osgeo</id>
             <url>http://download.osgeo.org/webdav/geotools</url>
@@ -51,6 +70,28 @@
             <id>conjars.org</id>
             <url>http://conjars.org/repo</url>
         </repository>
+
+
+
+        <!-- geotools -->
+        <repository>
+            <id>osgeo-release</id>
+            <url>https://repo.osgeo.org/repository/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>osgeo-snapshots</id>
+            <url>https://repo.osgeo.org/repository/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -101,12 +142,11 @@
         </dependency>
 
         <!-- this scope:import injects the entire dependencyManagement section from the main GeoMesa pom -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.locationtech.geomesa</groupId>
             <artifactId>geomesa_2.11</artifactId>
             <version>${geomesa.version}</version>
-
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.geotools</groupId>

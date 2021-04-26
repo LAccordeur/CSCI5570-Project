@@ -185,43 +185,32 @@ def generate_data_distributed_query_workload(drop_off_file, spatial_range, spati
 
 
 if __name__ == "__main__":
-    #output_path = "G:\\DataSet\\synthetic\\synthetic_1_30d_500_uniform"
+    
     spatial_list = [0.1, 0.01, 0.001]
-    time_list = [1, 24, 24*7, 24*30]
+    time_list = [1, 24, 24*7]
     query_num = 60
     filename_time_map = {}
     filename_time_map[1] = "1h"
     filename_time_map[24] = "24h"
     filename_time_map[24*7] = "7d"
-    filename_time_map[24*30] = "30d"
     print(filename_time_map)
     filename_spatial_map = {}
     filename_spatial_map[0.1] = "1"
     filename_spatial_map[0.01] = "01"
     filename_spatial_map[0.001] = "001"
-    #generate_uniform_distributed_query_workload([-74.05, 40.60, -73.75, 40.90], ["2010-01-01 00:00:00", "2010-01-31 23:59:59"], 0.1, 24*30, 500, "G:\\DataSet\\synthetic\\synthetic_1_30d_500_uniform")
-    #print(random.zipf(2, 1000))
-    # for spatial_item in spatial_list:
-    #     for time_item in time_list:
-    #         filename = "G:\\DataSet\\synthetic\\synthetic_%s_%s_60_random" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
-    #         generate_random_distributed_query_workload([-74.05, 40.60, -73.75, 40.90], ["2010-01-01 00:00:00", "2010-01-31 23:59:59"], spatial_item, time_item, query_num, filename)
-    #         print(filename)
-
-    # for spatial_item in spatial_list:
-    #     for time_item in time_list:
-    #         filename = "G:\\DataSet\\synthetic\\synthetic_%s_%s_60_random" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
-    #         generate_random_distributed_query_workload([-74.00, 40.65, -73.85, 40.80], ["2010-01-01 00:00:00", "2010-01-31 23:59:59"], spatial_item, time_item, query_num, filename)
-    #         print(filename)
-    #
-    # for spatial_item in spatial_list:
-    #     for time_item in time_list:
-    #         filename = "G:\\DataSet\\synthetic\\synthetic_%s_%s_60_zipf" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
-    #         generate_zipf_distributed_query_workload([-74.01, 40.71, -73.98, 40.75], ["2010-01-01 00:00:00", "2010-01-31 23:59:59"], spatial_item, time_item, query_num, filename)
-    #         print(filename)
 
 
     for spatial_item in spatial_list:
         for time_item in time_list:
-            filename = "G:\\DataSet\\synthetic\\synthetic_%s_%s_60_data" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
-            generate_data_distributed_query_workload("G:\\DataSet\\FOIL2010\\format\\trip_data_1_pickup.csv", [-74.05, 40.60, -73.75, 40.90], spatial_item, time_item, query_num, filename)
+            filename = "synthetic_%s_%s_60_random" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
+            generate_random_distributed_query_workload([-74.00, 40.65, -73.85, 40.80], ["2010-01-01 00:00:00", "2010-01-31 23:59:59"], spatial_item, time_item, query_num, filename)
+            print(filename)
+    
+    
+
+
+    for spatial_item in spatial_list:
+        for time_item in time_list:
+            filename = "synthetic_%s_%s_60_data" % (filename_spatial_map[spatial_item], filename_time_map[time_item])
+            generate_data_distributed_query_workload("src/main/resources/dataset/trip_data_1_pickup.csv", [-74.05, 40.60, -73.75, 40.90], spatial_item, time_item, query_num, filename)
             print(filename)

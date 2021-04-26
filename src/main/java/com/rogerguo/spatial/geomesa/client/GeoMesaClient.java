@@ -97,6 +97,7 @@ public abstract class GeoMesaClient{
                 writeTestFeatures(data, this, sft, datastore);
                 long writeStop = System.currentTimeMillis();
                 System.out.println("Write takes " + (writeStop - writeStart));
+                System.out.println("Finish insertion");
             }
 
             List<Query> queries = getTestQueries(data);

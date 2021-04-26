@@ -23,9 +23,10 @@ public class HBaseWriteClient extends GeoMesaClient {
     public static void main(String[] args) {
         try {
 
-            String queryFilePath = "G:\\DataSet\\csci5570\\synthetic_01_1h_60_all_drz";
-            String logFilePath = "G:\\DataSet\\csci5570\\log-new\\geomesa-z3-default-new\\synthetic_01_1h_60_all_drz.geomesa.default.z3.csv";
-            HBaseWriteClient client = new HBaseWriteClient(args, new NYCTaxiFormattedDataTestGeoMesaZ2Synthetic(null, null), logFilePath);
+            String dataFilePath = "src/main/resources/dataset/trip_data_1_pickup.csv";
+            String queryFilePath = "src/main/resources/query/test_query";
+            String logFilePath = "src/main/resources/result/test/test_query_result.csv";
+            HBaseWriteClient client = new HBaseWriteClient(args, new NYCTaxiFormattedDataTestGeoMesaZ2Synthetic(queryFilePath, dataFilePath), logFilePath);
             client.execute();
 
 
