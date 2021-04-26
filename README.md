@@ -35,37 +35,37 @@ After installing all dependencies:
 #### Step 2: Generate query workloads (optional)
 - The workloads used in the evaluation have been generated and is located at the src/main/resources/query
 - (Optional) generate it by yourself, use the command in the root of project directory
-"""
+```
 python3 src/main/python/SyntheticWorkload.py   // it needs 1~2 mintues because it needs to read pickup data file to generate data-related queries. 
-"""
+```
 
 #### Step 3: Run evaluation code
 - Start HBase
-"""
+```
 cd /home/rogerguo/Tools/hbase-1.4.11/bin
 ./start-hbase.sh
-"""
+```
 
 
 - Insert data, it is handled by HBaseWriteClient.java (src/main/java/com/rogerguo/spatial/geomesa/client/HBaseWriteClient.java), you can specify input data file path in this code, and then run following commands in the root of project directory
-"""
+```
 mvn compile  // it needs several mintues when run at the first time (maven needs to download all denpendencies at the first time)
 mvn exec:java -Dexec.mainClass=com.rogerguo.spatial.geomesa.client.HBaseWriteClient -Dexec.args="--hbase.zookeepers 127.0.0.1  --hbase.catalog geomesa_csci5570_test"   // it needs about 4~5 mintues to insert data
-"""
+```
 
 - Run range query workload, it is handled by HBaseClient.java, you can specify path of query workload and the path of output result, and then run following commands in the root of project directory, the response time of each query will be written in the output file.
 
-"""
+```
 mvn compile
 mvn exec:java -Dexec.mainClass=com.rogerguo.spatial.geomesa.client.HBaseClient -Dexec.args="--hbase.zookeepers 127.0.0.1  --hbase.catalog geomesa_csci5570_test"
 
-"""
+```
 
 - Run k-NN query
-"""
+```
 mvn compile
 mvn exec:java -Dexec.mainClass=com.rogerguo.spatial.geomesa.client.KNNQueryClient -Dexec.args="--hbase.zookeepers 127.0.0.1  --hbase.catalog geomesa_csci5570_test"
-"""
+```
 
 #### Virtual Box
 We have installed all dependencies, generated query workload and inserted data in a virtual machine, so you can directly run queries using above commands in the root of project directory after starting HBase.
